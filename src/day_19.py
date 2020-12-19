@@ -24,17 +24,10 @@ def is_valid(orig_msg, rules_dict):
         rule, msg = valid_options.pop()
         option = rule[0]
         if option in ['a', 'b']:
-            # if msg[0] == option:
-            #     if len(rule) == 1 and len(msg) == 1:
-            #         return True
-            #     elif len(rule) >= 2 and len(msg) >= 2:
-            #         valid_options.append((rule[1:], msg[1:]))
             if msg[0] == option:
-                if len(rule) == 1:
-                    if len(msg) == 1:
-                        return True
-                    continue
-                elif len(msg) >= 2:
+                if len(rule) == 1 and len(msg) == 1:
+                    return True
+                elif len(rule) >= 2 and len(msg) >= 2:
                     valid_options.append((rule[1:], msg[1:]))
             continue
         for nx in rules_dict[option]:
