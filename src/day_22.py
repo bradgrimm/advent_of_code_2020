@@ -41,8 +41,7 @@ def play_game(p1_data, p2_data):
         has_seen.add(game_id)
         
         # Game rules
-        c1 = p1_data.pop()
-        c2 = p2_data.pop()
+        c1, c2 = p1_data.pop(), p2_data.pop()
         if len(p1_data) >= c1 and len(p2_data) >= c2:
             p1_winner, _ = play_game(p1_data[-c1:], p2_data[-c2:])
         else:
